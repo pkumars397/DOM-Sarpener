@@ -21,8 +21,34 @@
 //     val.style.fontWeight="bold"
 // }
 // ! Part 3 Get element by TagName()(its also gives HTMLCollection)
-const li = document.getElementsByTagName("li");
-console.log(li);
-for (let i = 0; i < li.length; i++){
-    li[i].style.backgroundColor = "#474747";
+// const li = document.getElementsByTagName("li");
+// console.log(li);
+// for (let i = 0; i < li.length; i++){
+//     li[i].style.backgroundColor = "#474747";
+// }
+
+// ? querySelector (returns first matching element)
+
+// const input = document.querySelector("input")
+// input.value = "Prashant"
+// const submit = document.querySelector('input[type="submit"]')
+// submit.value = "SEND";
+// // const li = document.querySelector(".list-group-item");
+// // li.style.backgroundColor = "blue";
+// // const ul = document.querySelector("ul")
+// // console.log(ul)
+// // ul.children[1].style.color = "lightblue";
+// // ul.children[2].style.visibility = "hidden";
+
+// const secondChild = document.querySelector(".list-group li:nth-child(2)")
+// secondChild.style.backgroundColor = "green"
+// const thirdChild = document.querySelector(".list-group li:nth-child(3)")
+// thirdChild.style.visibility="hidden"
+// ? querySelectorAll (returns NodeList)
+const li = document.querySelectorAll("li")
+li[1].style.color = "green"
+const odd = document.querySelectorAll("li:nth-child(odd)")
+for (let val of odd) {
+    val.style.backgroundColor="green"
 }
+

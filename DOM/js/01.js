@@ -9,4 +9,14 @@ const heading = document.getElementById("main-header");
 
 heading.style.borderBottom = "5px solid black";
 
-document.getElementsByClassName("title")[0].style.color="green"
+document.getElementsByClassName("title")[0].style.color = "green";
+
+// ! Part2
+const items = document.getElementsByClassName("list-group-item");
+console.log(items);
+console.log(items[0]);
+
+items[2].style.backgroundColor = "green"
+for (let val of items) {
+    val.style.fontWeight="bold"
+}

@@ -74,13 +74,13 @@ const newDiv2 = document.createElement("div")
 
 newDiv2.className = "div-class2"
 
-newDiv2.id = "div-id"
+newDiv2.id = "div-id2"
 
 newDiv2.setAttribute("href","https://google.com")
 
 let newDivText2 = document.createTextNode("Hello World");
 
-newDiv2.appendChild(newDivText);
+newDiv2.appendChild(newDivText2);
 console.log(newDiv2)
 
 ul.insertBefore(newDiv2,ul.firstElementChild)

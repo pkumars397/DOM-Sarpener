@@ -14,22 +14,29 @@ filter.addEventListener("keyup", filterItems);
 // Add Item
 function addItem(e) {
     e.preventDefault();
-//   input value;
+    //   input value;
     var newItem = document.getElementById("item").value;
-//create new li element
+    var desc = document.getElementById("desc").value;
+    //create new li element
     let li = document.createElement("li");
     // add class
     li.className = "list-group-item";
     // add text node with input value;
-    li.appendChild(document.createTextNode(newItem));
+    li.appendChild(document.createTextNode(newItem+" "));
+    // add class
+    li.className = "list-group-item";
+    // add text node with input value;
+    li.appendChild(document.createTextNode(desc));
+
+    
     // create delete button
     let delButton = document.createElement("button");
     // add class to del button
     delButton.className = "btn btn-danger btn-sm float-right delete"
     // create text node
     delButton.appendChild(document.createTextNode("X"))
-    li.appendChild(delButton)
     listItems.appendChild(li);
+    li.appendChild(delButton)
 }
 
 // Remove Item

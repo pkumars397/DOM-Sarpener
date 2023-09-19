@@ -30,16 +30,30 @@ form.addEventListener("submit", (event) => {
 
 function showuser(obj) {
     let parentElement = document.getElementById("List");
+    // Creating the child Element
     let childelement = document.createElement("li");
     childelement.textContent = obj.Name + "-" + obj.Email + "-" + obj.Phone;
-     
+    //  Creating the Delete Button
     let delButton = document.createElement("input")
     delButton.value = "Delete";
     delButton.type = "button";
+    // creating edit button
+    const editButton = document.createElement("button");
+    editButton.textContent="edit"
+    // onclick event on delButton
     delButton.onclick = () => {
         localStorage.removeItem(obj.Email);
         parentElement.removeChild(childelement)
     }
+    // onclick on editButton
+    editButton.addEventListener("click", () => {
+        localStorage.removeItem(obj.Email);
+        parentElement.removeChild(childelement)
+        document.getElementById("fN").value = obj.Name;
+        document.getElementById("emailId").value = obj.Email;
+        document.getElementById("phone").value = obj.Phone;
+    })
     childelement.appendChild(delButton);
+    childelement.appendChild(editButton)
     parentElement.appendChild(childelement)
 }

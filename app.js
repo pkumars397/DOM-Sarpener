@@ -24,7 +24,7 @@ form.addEventListener("submit", (event) => {
     };
 
     let details_stringfy = JSON.stringify(details);
-    localStorage.setItem("userDetails", details_stringfy)
+    localStorage.setItem(event.target.emailId.value, details_stringfy)
     let details_destringfy = JSON.parse(localStorage.getItem("userDetails"));
     console.log(details_destringfy)
 });

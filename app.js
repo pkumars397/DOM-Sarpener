@@ -15,17 +15,31 @@ let form = document.getElementById("form");
 // })
 
 form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    let details = {
-        Name: event.target.fullName.value,
-        Email: event.target.emailId.value,
-        Phone: event.target.phone.value,
-        Time:event.target.date.value+" "+event.target.time.value
-    };
-
-    let details_stringfy = JSON.stringify(details);
-    localStorage.setItem(event.target.emailId.value, details_stringfy)
-    let details_destringfy = JSON.parse(localStorage.getItem("userDetails"));
-    console.log(details_destringfy)
+  event.preventDefault();
+  let details = {
+    Name: event.target.fullName.value,
+    Email: event.target.emailId.value,
+    Phone: event.target.phone.value,
+    Time: event.target.date.value + " " + event.target.time.value,
+    }
+  let details_stringfy = JSON.stringify(details);
+  localStorage.setItem(event.target.emailId.value, details_stringfy);
+    showuser(details);
 });
 
+
+function showuser(obj) {
+    let parentElement = document.getElementById("List");
+    let childelement = document.createElement("li");
+    childelement.textContent = obj.Name + "-" + obj.Email + "-" + obj.Phone;
+     
+    let delButton = document.createElement("input")
+    delButton.value = "Delete";
+    delButton.type = "button";
+    delButton.onclick = () => {
+        localStorage.removeItem(obj.Email);
+        parentElement.removeChild(childelement)
+    }
+    childelement.appendChild(delButton);
+    parentElement.appendChild(childelement)
+}
